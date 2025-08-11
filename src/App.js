@@ -21,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <h1>To-Do List</h1>
+      <h2>Keep Shining</h2>
       <ul>
         {todos.map((item, index) => (
           <li key={index}>{item}</li>
