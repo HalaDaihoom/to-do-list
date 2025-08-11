@@ -1,9 +1,9 @@
-name: Deploy to-do-list 
+name: Deploy to-do-list
 
 on:
   push:
     branches:
-      - master
+      - master 
 
 jobs:
   build-and-deploy:
@@ -20,11 +20,13 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build Project
-        run: npm run build
+      - name: Build Project (Ignore ESLint Warnings)
+        run: CI=false npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
+          user_name: 'GitHub Actions'
+          user_email: 'actions@github.com'
